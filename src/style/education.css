@@ -1,0 +1,19 @@
+.educationHeader{
+    display: flex;
+    justify-content: space-between;
+}
+
+.educationAdd{
+    display: flex;
+    align-items: center;
+}
+
+button {
+    background: none;
+    border: none;
+}
+
+button img {
+    height: 20px;
+    width: 20px;
+}
