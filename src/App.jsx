@@ -1,5 +1,6 @@
 // import { useState } from 'react'
-import './App.css'
+import './style/App.css'
+import './style/education.css';
 import { Header, Main } from './header'
 
 function App() {
