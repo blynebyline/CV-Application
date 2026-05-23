@@ -1,7 +1,12 @@
-:root{
-  --body-bg: #635255;
-  --header-bg: #c0e8f9;
-  --main-bg: #ce7b91;
+:root {
+  --bg: #0B1220;
+  --wrap: #1f2737;      
+  --panel: #8ac1ff;     
+  --paper: #FFFFFF;     
+  --text: #111827;
+  --muted: #6B7280;
+  --accent: #3B82F6;
+  --border: #E5E7EB;
 }
 
 * {
@@ -11,11 +16,12 @@
 }
 
 body{
-  background-color: var(--body-bg);
+  background-color: var(--bg);
+  
 }
 
 header{
-  background-color: var(--header-bg);
+  background-color: var(--panel);
   height: 10vh;
   display: flex;
   flex-direction: column;
@@ -33,41 +39,17 @@ header{
   max-height: 40px;
 }
 
+.pageWrapper{
+  display: flex;
+  justify-content: center;
+}
+
 main {
   display: flex;
   justify-content: center;
   height: 90vh;
-}
-
-.info{
-  margin: auto;
-  width: min(800px, 100%);
-  height: 100%;
-  background-color: var(--main-bg);
-  padding: 2rem;
-}
-
-input {
-  padding: 0.5rem;
-  border-radius: 6px;
-}
-input:focus{
-  outline: none;
-  border: 1.5px solid blue;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-}
-
-button {
-  cursor: pointer;
+  width: clamp(300px, 100%, 700px);
+  background-color: var(--wrap);
 }
 
 
-button {
-    background: none;
-    border: none;
-}
-
-button img {
-    height: 20px;
-    width: 20px;
-}

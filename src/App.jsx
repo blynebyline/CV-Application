@@ -9,7 +9,9 @@ function App() {
   return (
     <>
       <Header /> 
-      <Main />
+      <div className="pageWrapper">
+        <Main />
+      </div>
     </>
   )
 }
