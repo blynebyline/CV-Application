@@ -22,6 +22,7 @@ export function Header(){
 export function Main(){
     return (
         <main>
+            <Profile />
             <Summary />
             <Education />
             <EducationalSection />
@@ -72,6 +73,17 @@ function Work(){
         <section className="workSec addSec">
             <h2>Work Experience</h2>
             <button><img src={add}></img></button>
+        </section>
+    )
+}
+
+function Profile(){
+    return (
+    <section className="genInfo">
+        <input type="text" name="fullName" id="fullName" placeholder='First Name & Last Name'/>
+        <input type="text" name="phoneNo" id="phoneNo" placeholder='Phone'/>
+        <input type="text" name="emailAdr" id="emailAdr" placeholder='Email'/>
+        <input type="text" name="adr" id="adr" placeholder='Address'/>
         </section>
     )
 }
