@@ -1,4 +1,4 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 import download from './assets/download.png'
 // import edit from './assets/edit.png'
 import view from './assets/view.png'
@@ -20,14 +20,51 @@ export function Header(){
 }
 
 export function Main(){
+    const [educ, setEduc] = useState([]);
+
+    const addEduc = () => {
+        setEduc([
+            ...educ,
+            {
+                id: crypto.randomUUID(),
+                school: "",
+                location: "",
+                from: "",
+                to: "",
+                degree: "",
+                accomplishment: "",
+            }
+        ])
+    }
+    const [wrk, setWrk] = useState([]);
+
+    const addWork = () => {
+        setWrk([
+            ...educ,
+            {
+                id: crypto.randomUUID(),
+                company: "",
+                location: "",
+                from: "",
+                to: "",
+                role: "",
+                accomplishment: "",
+            }
+        ])
+    }
+
     return (
         <main>
             <Profile />
             <Summary />
-            <Education />
-            <EducationalSection />
-            <Work />
-            <WorkSection />
+            <Education addEduc={addEduc}/>
+            {educ.map((item) => (
+                <EducationalSection key={item.id} />
+            ))}
+            <Work addWork={addWork} />
+            {wrk.map((item) => (
+                <WorkSection key={item.id} />
+            ))}
         </main>
     )
 }
@@ -53,11 +90,11 @@ function Summary(){
     )
 }
 
-function Education(){
+function Education( { addEduc }){
     return (
         <section className="educationSec addSec">
             <h2>Educational Experience</h2>
-            <button><img src={add}></img></button>
+            <button onClick={addEduc}><img src={add}></img></button>
         </section>
     )
 }
@@ -80,11 +117,11 @@ function EducationalSection(){
     )
 }
 
-function Work(){
+function Work({ addWork }){
     return (
         <section className="workSec addSec">
             <h2>Work Experience</h2>
-            <button><img src={add}></img></button>
+            <button onClick={addWork}><img src={add}></img></button>
         </section>
     )
 }
