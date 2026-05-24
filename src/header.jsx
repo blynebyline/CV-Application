@@ -36,6 +36,16 @@ export function Main(){
             }
         ])
     }
+
+    const updateEduc = (id, field, value) => {
+        setEduc(educ.map(entry => 
+            entry.id === id ? {...entry, [field]: value} : entry
+        ))
+    }
+
+    const deleteEduc = (id) => {
+        setEduc(educ.filter(entry => entry.id !== id))
+    }
     const [wrk, setWrk] = useState([]);
 
     const addWork = () => {
@@ -59,7 +69,7 @@ export function Main(){
             <Summary />
             <Education addEduc={addEduc}/>
             {educ.map((item) => (
-                <EducationalSection key={item.id} />
+                <EducationalSection key={item.id} item={item} updateEduc={updateEduc} deleteEduc={deleteEduc}/>
             ))}
             <Work addWork={addWork} />
             {wrk.map((item) => (
@@ -99,20 +109,26 @@ function Education( { addEduc }){
     )
 }
 
-function EducationalSection(){
+function EducationalSection({ item, updateEduc, deleteEduc}){
     return (
         <section className="eduInfo">
             <div className="uniTitle">
-                <input type="text" name="uniName" className="uniName" placeholder='University Name'/>
-                <input type="text" name="uniLocation" className="uniLocation" placeholder='Location'/>
+                <input value={item.school} onChange={(e) => updateEduc(item.id, "school", e.target.value)} 
+                type="text" name="uniName" className="uniName" placeholder='University Name'/>
+                <input value={item.location} onChange={(e) => updateEduc(item.id, "location", e.target.value)} 
+                type="text" name="uniLocation" className="uniLocation" placeholder='Location'/>
             </div>
             <div className="uniTime">
-                <input type="text" name="uniFrom" className="uniFrom" placeholder='From...'/>
-                <input type="text" name="uniTo" className="uniTo" placeholder='To...'/>
+                <input value={item.from} onChange={(e) => updateEduc(item.id, "from", e.target.value)}
+                type="text" name="uniFrom" className="uniFrom" placeholder='From...'/>
+                <input value={item.to} onChange={(e) => updateEduc(item.id, "to", e.target.value)}
+                type="text" name="uniTo" className="uniTo" placeholder='To...'/>
             </div>
-            <input type="text" name="uniDegree" className="uniDegree"  placeholder='Degree or Program' />
-            <input type="text" name="uniAccomplishment" className="uniAccomplishment" placeholder='Accomplishments and Achivements'/>
-            <button><img src={deleteImg}></img> Delete</button>
+            <input value={item.degree} onChange={(e) => updateEduc(item.id, "degree", e.target.value)}
+            type="text" name="uniDegree" className="uniDegree"  placeholder='Degree or Program' />
+            <input value={item.accomplishment} onChange={(e) => updateEduc(item.id, "accomplishment", e.target.value)}
+            type="text" name="uniAccomplishment" className="uniAccomplishment" placeholder='Accomplishments and Achivements'/>
+            <button onClick={() => deleteEduc(item.id)}><img src={deleteImg}></img> Delete</button>
         </section>
     )
 }
