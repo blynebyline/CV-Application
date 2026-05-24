@@ -61,10 +61,10 @@ section{
   align-items: center;
   width: 100%;
   border-radius: 6px;
+  background-color: var(--paper);
 }
 
 .summarySec {
-  background-color: var(--paper);
   height: 150px
 }
 

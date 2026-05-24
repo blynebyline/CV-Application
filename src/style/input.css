@@ -5,3 +5,9 @@ textarea {
     border-radius: 6px;
     resize: none;
 }
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}

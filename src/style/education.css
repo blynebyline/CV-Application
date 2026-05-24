@@ -1,0 +1,15 @@
+.addSec{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    height: 50px;
+}
+
+.addSec h2 {
+    font-size: clamp(1rem, 3vw, 1.3rem); 
+}
+
+.addSec img{
+    width: 30px;
+}
+
