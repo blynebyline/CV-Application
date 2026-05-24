@@ -14,6 +14,10 @@
     width: 25px;
 }
 
+.addSec button:hover{
+    border: 2px solid green;
+}
+
 .eduInfo, .workInfo, .genInfo{
     display: flex;
     flex-direction: column;
@@ -31,6 +35,10 @@
     border-radius: 6px;
     padding: .3rem;
     width: 100%;
+}
+.eduInfo button:hover, .workInfo button:hover{
+    background-color: red;
+    font-weight: bold;
 }
 
 .uniTitle,
