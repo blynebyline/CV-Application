@@ -66,15 +66,15 @@ function EducationalSection(){
     return (
         <section className="eduInfo">
             <div className="uniTitle">
-                <input type="text" name="uniName" id="uniName" placeholder='University Name'/>
-                <input type="text" name="uniLocation" id="uniLocation" placeholder='Location'/>
+                <input type="text" name="uniName" className="uniName" placeholder='University Name'/>
+                <input type="text" name="uniLocation" className="uniLocation" placeholder='Location'/>
             </div>
             <div className="uniTime">
-                <input type="text" name="uniFrom" id="uniFrom" placeholder='From...'/>
-                <input type="text" name="uniTo" id="uniTo" placeholder='To...'/>
+                <input type="text" name="uniFrom" className="uniFrom" placeholder='From...'/>
+                <input type="text" name="uniTo" className="uniTo" placeholder='To...'/>
             </div>
-            <input type="text" name="uniDegree" id="uniDegree"  placeholder='Degree or Program' />
-            <input type="text" name="uniAccomplishment" id="uniAccomplishment" placeholder='Accomplishments and Achivements'/>
+            <input type="text" name="uniDegree" className="uniDegree"  placeholder='Degree or Program' />
+            <input type="text" name="uniAccomplishment" className="uniAccomplishment" placeholder='Accomplishments and Achivements'/>
             <button><img src={deleteImg}></img> Delete</button>
         </section>
     )
@@ -93,15 +93,15 @@ function WorkSection(){
     return (
         <section className="workInfo">
             <div className="uniTitle">
-                <input type="text" name="comName" id="comName" placeholder='Company Name'/>
-                <input type="text" name="comLoc" id="comLoc" placeholder='Location'/>
+                <input type="text" name="comName" className="comName" placeholder='Company Name'/>
+                <input type="text" name="comLoc" className="comLoc" placeholder='Location'/>
             </div>
             <div className="uniTime">
-                <input type="text" name="comFrom" id="comFrom" placeholder='From...'/>
-                <input type="text" name="comTo" id="comTo" placeholder='To...'/>
+                <input type="text" name="comFrom" className="comFrom" placeholder='From...'/>
+                <input type="text" name="comTo" className="comTo" placeholder='To...'/>
             </div>
-            <input type="text" name="comRole" id="comRole" placeholder='Role' />
-            <input type="text" name="comAccomplishment" id="comAccomplishment" placeholder='Accomplishments and Achivements'/>
+            <input type="text" name="comRole" className="comRole" placeholder='Role' />
+            <input type="text" name="comAccomplishment" className="comAccomplishment" placeholder='Accomplishments and Achivements'/>
             <button><img src={deleteImg}></img> Delete</button>
         </section>
     )
