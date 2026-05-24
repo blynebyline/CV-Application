@@ -46,10 +46,30 @@ header{
 
 main {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   height: 90vh;
   width: clamp(300px, 100%, 700px);
   background-color: var(--wrap);
 }
 
+section{
+  padding: 1rem;
+  margin: 1rem ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border-radius: 6px;
+}
 
+.summarySec {
+  background-color: var(--paper);
+  height: 150px
+}
+
+@media(min-width: 320px){
+  section {
+    width: 90%;
+  }
+}

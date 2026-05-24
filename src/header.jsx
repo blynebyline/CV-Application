@@ -22,13 +22,15 @@ export function Main(){
     return (
         <main>
             <Summary />
+            <Summary />
+            <Summary />
         </main>
     )
 }
 
 function Summary(){
     return (
-        <section>
+        <section className='summarySec'>
             <h2>Summary</h2>
             <textarea placeholder='Write your summary...'></textarea>
         </section>
