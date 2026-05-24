@@ -40,7 +40,7 @@ export function Main(){
 
     const addWork = () => {
         setWrk([
-            ...educ,
+            ...wrk,
             {
                 id: crypto.randomUUID(),
                 company: "",
