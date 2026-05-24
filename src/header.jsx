@@ -26,11 +26,23 @@ export function Main(){
             <Summary />
             <Education />
             <EducationalSection />
-            
             <Work />
+            <WorkSection />
         </main>
     )
 }
+
+function Profile(){
+    return (
+    <section className="genInfo">
+        <input type="text" name="fullName" id="fullName" placeholder='First Name & Last Name'/>
+        <input type="text" name="phoneNo" id="phoneNo" placeholder='Phone'/>
+        <input type="text" name="emailAdr" id="emailAdr" placeholder='Email'/>
+        <input type="text" name="adr" id="adr" placeholder='Address'/>
+        </section>
+    )
+}
+
 
 function Summary(){
     return (
@@ -61,7 +73,7 @@ function EducationalSection(){
                 <input type="text" name="uniFrom" id="uniFrom" placeholder='From...'/>
                 <input type="text" name="uniTo" id="uniTo" placeholder='To...'/>
             </div>
-            <input type="text" name="uniDegree" id="uniDegree" placeholder='Degree or Program' />
+            <input type="text" name="uniDegree" id="uniDegree"  placeholder='Degree or Program' />
             <input type="text" name="uniAccomplishment" id="uniAccomplishment" placeholder='Accomplishments and Achivements'/>
             <button><img src={deleteImg}></img> Delete</button>
         </section>
@@ -77,13 +89,20 @@ function Work(){
     )
 }
 
-function Profile(){
+function WorkSection(){
     return (
-    <section className="genInfo">
-        <input type="text" name="fullName" id="fullName" placeholder='First Name & Last Name'/>
-        <input type="text" name="phoneNo" id="phoneNo" placeholder='Phone'/>
-        <input type="text" name="emailAdr" id="emailAdr" placeholder='Email'/>
-        <input type="text" name="adr" id="adr" placeholder='Address'/>
+        <section className="workInfo">
+            <div className="uniTitle">
+                <input type="text" name="comName" id="comName" placeholder='Company Name'/>
+                <input type="text" name="comLoc" id="comLoc" placeholder='Location'/>
+            </div>
+            <div className="uniTime">
+                <input type="text" name="comFrom" id="comFrom" placeholder='From...'/>
+                <input type="text" name="comTo" id="comTo" placeholder='To...'/>
+            </div>
+            <input type="text" name="comRole" id="comRole" placeholder='Role' />
+            <input type="text" name="comAccomplishment" id="comAccomplishment" placeholder='Accomplishments and Achivements'/>
+            <button><img src={deleteImg}></img> Delete</button>
         </section>
     )
 }
