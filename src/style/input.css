@@ -11,3 +11,10 @@ button {
     border: none;
     cursor: pointer;
 }
+
+input {
+  width: 100%;
+  max-width: 100%;
+  padding: 6px;
+  border-radius: 6px;
+}

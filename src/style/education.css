@@ -9,7 +9,49 @@
     font-size: clamp(1rem, 3vw, 1.3rem); 
 }
 
-.addSec img{
-    width: 30px;
+.addSec img, 
+.eduInfo img{
+    width: 25px;
 }
 
+.eduInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+
+.eduInfo button img{
+    width: 15px;
+}
+
+.eduInfo button{
+    border: 1px solid black;
+    border-radius: 6px;
+    padding: .3rem;
+}
+
+.uniTitle,
+.uniTime {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.uniTitle input,
+.uniTime input {
+  flex: 1;
+  min-width: 0;
+}
+#uniAccomplishment,
+#uniDegree, .eduInfo button {
+  width: 100%;
+}
+
+@media (max-width: 720px) {
+  .uniTitle,
+  .uniTime {
+    flex-direction: column;
+  }
+}

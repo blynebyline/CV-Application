@@ -3,6 +3,7 @@ import download from './assets/download.png'
 // import edit from './assets/edit.png'
 import view from './assets/view.png'
 import add from './assets/add.png'
+import deleteImg from './assets/delete.png'
 
 
 export function Header(){
@@ -23,6 +24,8 @@ export function Main(){
         <main>
             <Summary />
             <Education />
+            <EducationalSection />
+            
             <Work />
         </main>
     )
@@ -42,6 +45,24 @@ function Education(){
         <section className="educationSec addSec">
             <h2>Educational Experience</h2>
             <button><img src={add}></img></button>
+        </section>
+    )
+}
+
+function EducationalSection(){
+    return (
+        <section className="eduInfo">
+            <div className="uniTitle">
+                <input type="text" name="uniName" id="uniName" placeholder='University Name'/>
+                <input type="text" name="uniLocation" id="uniLocation" placeholder='Location'/>
+            </div>
+            <div className="uniTime">
+                <input type="text" name="uniFrom" id="uniFrom" placeholder='From...'/>
+                <input type="text" name="uniTo" id="uniTo" placeholder='To...'/>
+            </div>
+            <input type="text" name="uniDegree" id="uniDegree" placeholder='Degree or Program' />
+            <input type="text" name="uniAccomplishment" id="uniAccomplishment" placeholder='Accomplishments and Achivements'/>
+            <button><img src={deleteImg}></img> Delete</button>
         </section>
     )
 }
