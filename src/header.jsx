@@ -22,8 +22,6 @@ export function Main(){
     return (
         <main>
             <Summary />
-            <Summary />
-            <Summary />
         </main>
     )
 }
