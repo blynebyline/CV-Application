@@ -63,6 +63,16 @@ export function Main(){
         ])
     }
 
+    const updateWork = (id, field, value) => {
+        setWrk(wrk.map(entry => 
+            entry.id === id ? {...entry, [field]: value} : entry
+        ))
+    }
+
+    const deleteWork = (id) => {
+        setWrk(wrk.filter(entry => entry.id !== id))
+    }
+
     return (
         <main>
             <Profile />
@@ -73,7 +83,7 @@ export function Main(){
             ))}
             <Work addWork={addWork} />
             {wrk.map((item) => (
-                <WorkSection key={item.id} />
+                <WorkSection key={item.id} item={item} updateWork={updateWork} deleteWork={deleteWork}/>
             ))}
         </main>
     )
@@ -142,20 +152,26 @@ function Work({ addWork }){
     )
 }
 
-function WorkSection(){
+function WorkSection({item, updateWork, deleteWork}){
     return (
         <section className="workInfo">
             <div className="uniTitle">
-                <input type="text" name="comName" className="comName" placeholder='Company Name'/>
-                <input type="text" name="comLoc" className="comLoc" placeholder='Location'/>
+                <input value={item.company} onChange={(e) => updateWork(item.id, "company", e.target.value)} 
+                type="text" name="comName" className="comName" placeholder='Company Name'/>
+                <input value={item.location} onChange={(e) => updateWork(item.id, "location", e.target.value)}  
+                type="text" name="comLoc" className="comLoc" placeholder='Location'/>
             </div>
             <div className="uniTime">
-                <input type="text" name="comFrom" className="comFrom" placeholder='From...'/>
-                <input type="text" name="comTo" className="comTo" placeholder='To...'/>
+                <input value={item.from} onChange={(e) => updateWork(item.id, "from", e.target.value)}  
+                type="text" name="comFrom" className="comFrom" placeholder='From...'/>
+                <input value={item.to} onChange={(e) => updateWork(item.id, "to", e.target.value)} 
+                type="text" name="comTo" className="comTo" placeholder='To...'/>
             </div>
-            <input type="text" name="comRole" className="comRole" placeholder='Role' />
-            <input type="text" name="comAccomplishment" className="comAccomplishment" placeholder='Accomplishments and Achivements'/>
-            <button><img src={deleteImg}></img> Delete</button>
+            <input value={item.role} onChange={(e) => updateWork(item.id, "role", e.target.value)} 
+            type="text" name="comRole" className="comRole" placeholder='Role' />
+            <input value={item.accomplishment} onChange={(e) => updateWork(item.id, "accomplishment", e.target.value)} 
+            type="text" name="comAccomplishment" className="comAccomplishment" placeholder='Accomplishments and Achivements'/>
+            <button onClick={() => deleteWork(item.id)}><img src={deleteImg}></img> Delete</button>
         </section>
     )
 }
