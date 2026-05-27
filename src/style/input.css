@@ -17,4 +17,11 @@ input {
   max-width: 100%;
   padding: 6px;
   border-radius: 6px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus-visible, textarea:focus-visible {
+  outline: none;
+  border-color: #3B82F6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
 }
