@@ -3,7 +3,7 @@ import download from './assets/download.png'
 // import edit from './assets/edit.png'
 import view from './assets/view.png'
 import add from './assets/add.png'
-import deleteImg from './assets/delete.png'
+import { Input, DeleteButton } from './helper';
 
 
 export function Header(){
@@ -123,22 +123,16 @@ function EducationalSection({ item, updateEduc, deleteEduc}){
     return (
         <section className="eduInfo">
             <div className="uniTitle">
-                <input value={item.school} onChange={(e) => updateEduc(item.id, "school", e.target.value)} 
-                type="text" name="uniName" className="uniName" placeholder='University Name'/>
-                <input value={item.location} onChange={(e) => updateEduc(item.id, "location", e.target.value)} 
-                type="text" name="uniLocation" className="uniLocation" placeholder='Location'/>
+                <Input value={item.school} onChange={(e) => updateEduc(item.id, "school", e.target.value)} className="uniName" placeholder='University Name'/>
+                <Input value={item.location} onChange={(e) => updateEduc(item.id, "location", e.target.value)} className="uniLocation" placeholder='Location'/>
             </div>
             <div className="uniTime">
-                <input value={item.from} onChange={(e) => updateEduc(item.id, "from", e.target.value)}
-                type="text" name="uniFrom" className="uniFrom" placeholder='From...'/>
-                <input value={item.to} onChange={(e) => updateEduc(item.id, "to", e.target.value)}
-                type="text" name="uniTo" className="uniTo" placeholder='To...'/>
+                <Input value={item.from} onChange={(e) => updateEduc(item.id, "from", e.target.value)} className="uniFrom" placeholder='From'/>
+                <Input value={item.to} onChange={(e) => updateEduc(item.id, "to", e.target.value)} className="uniTo" placeholder='To'/>
             </div>
-            <input value={item.degree} onChange={(e) => updateEduc(item.id, "degree", e.target.value)}
-            type="text" name="uniDegree" className="uniDegree"  placeholder='Degree or Program' />
-            <input value={item.accomplishment} onChange={(e) => updateEduc(item.id, "accomplishment", e.target.value)}
-            type="text" name="uniAccomplishment" className="uniAccomplishment" placeholder='Accomplishments and Achivements'/>
-            <button onClick={() => deleteEduc(item.id)}><img src={deleteImg}></img> Delete</button>
+            <Input value={item.degree} onChange={(e) => updateEduc(item.id, "degree", e.target.value)} className="uniDegree" placeholder='Degree or Program'/>
+            <Input value={item.accomplishment} onChange={(e) => updateEduc(item.id, "accomplishment", e.target.value)} className="uniAccomplishment" placeholder='Accomplishments and Achievements'/>
+            <DeleteButton onClick={() => deleteEduc(item.id)}/>
         </section>
     )
 }
@@ -156,22 +150,16 @@ function WorkSection({item, updateWork, deleteWork}){
     return (
         <section className="workInfo">
             <div className="uniTitle">
-                <input value={item.company} onChange={(e) => updateWork(item.id, "company", e.target.value)} 
-                type="text" name="comName" className="comName" placeholder='Company Name'/>
-                <input value={item.location} onChange={(e) => updateWork(item.id, "location", e.target.value)}  
-                type="text" name="comLoc" className="comLoc" placeholder='Location'/>
+                <Input value={item.company} onChange={(e) => updateWork(item.id, "company", e.target.value)} className="comName" placeholder='Company Name'/>
+                <Input value={item.location} onChange={(e) => updateWork(item.id, "location", e.target.value)} className="comLoc" placeholder='Location'/>
             </div>
             <div className="uniTime">
-                <input value={item.from} onChange={(e) => updateWork(item.id, "from", e.target.value)}  
-                type="text" name="comFrom" className="comFrom" placeholder='From...'/>
-                <input value={item.to} onChange={(e) => updateWork(item.id, "to", e.target.value)} 
-                type="text" name="comTo" className="comTo" placeholder='To...'/>
+                <Input value={item.from} onChange={(e) => updateWork(item.id, "from", e.target.value)} className="comFrom" placeholder='From'/>
+                <Input value={item.to} onChange={(e) => updateWork(item.id, "to", e.target.value)} className="comTo" placeholder='To'/>
             </div>
-            <input value={item.role} onChange={(e) => updateWork(item.id, "role", e.target.value)} 
-            type="text" name="comRole" className="comRole" placeholder='Role' />
-            <input value={item.accomplishment} onChange={(e) => updateWork(item.id, "accomplishment", e.target.value)} 
-            type="text" name="comAccomplishment" className="comAccomplishment" placeholder='Accomplishments and Achivements'/>
-            <button onClick={() => deleteWork(item.id)}><img src={deleteImg}></img> Delete</button>
+            <Input value={item.role} onChange={(e) => updateWork(item.id, "role", e.target.value)} className="comRole" placeholder='Role'/>
+            <Input value={item.accomplishment} onChange={(e) => updateWork(item.id, "accomplishment", e.target.value)} className="comAccomplishment" placeholder='Accomplishments and Achivements'/>
+            <DeleteButton onClick={() => deleteWork(item.id)}/>
         </section>
     )
 }
