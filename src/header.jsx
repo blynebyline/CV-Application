@@ -6,20 +6,39 @@ import add from './assets/add.png'
 import { Input, DeleteButton } from './helper';
 
 
-export function Header(){
+export function Header({ changePreview, preview }){
+
     return (
         <header>
             <h2>CV MAKER</h2>
             <div className="headerSelect">
 
-                <img src={view} alt='View'></img>
-                <img src={download} alt='View'></img>
+                <button onClick={changePreview}><img src={view} alt='View'></img></button>
+                {preview && <button><img src={download} alt='View'></img></button>}
             </div>
         </header>
     )
 }
 
-export function Main(){
+export function Main({ preview }){
+    const [profile, setProfile] = useState({
+        fullName: "",
+        phone: "",
+        email: "",
+        address: "",
+    })
+
+    const updateProfile = (field, value) => {
+        setProfile({...profile, [field]: value})
+    }
+
+    const [summary, setSummary] = useState("")
+
+    const updateSummary = (value) => {
+        setSummary(value)
+    }
+
+
     const [educ, setEduc] = useState([]);
 
     const addEduc = () => {
@@ -73,10 +92,14 @@ export function Main(){
         setWrk(wrk.filter(entry => entry.id !== id))
     }
 
-    return (
+    if(preview){
+        return <Paper educ={educ} wrk={wrk} profile={profile} summary={summary}/>
+    } else {
+
+        return (
         <main>
-            <Profile />
-            <Summary />
+            <Profile updateProfile={updateProfile} profile={profile} />
+            <Summary summary={summary} updateSummary={updateSummary}/>
             <Education addEduc={addEduc}/>
             {educ.map((item) => (
                 <EducationalSection key={item.id} item={item} updateEduc={updateEduc} deleteEduc={deleteEduc}/>
@@ -87,25 +110,27 @@ export function Main(){
             ))}
         </main>
     )
+
+    }
 }
 
-function Profile(){
+function Profile({ profile, updateProfile }){
     return (
     <section className="genInfo">
-        <input type="text" name="fullName" id="fullName" placeholder='First Name & Last Name'/>
-        <input type="text" name="phoneNo" id="phoneNo" placeholder='Phone'/>
-        <input type="text" name="emailAdr" id="emailAdr" placeholder='Email'/>
-        <input type="text" name="adr" id="adr" placeholder='Address'/>
+        <Input value={profile.fullName} onChange={(e) => updateProfile("fullName", e.target.value)} className="profileInput" placeholder='First Name & Last Name'/>
+        <Input value={profile.phone} onChange={(e) => updateProfile("phone", e.target.value)} className="profileInput" placeholder='Phone'/>
+        <Input value={profile.email} onChange={(e) => updateProfile("email", e.target.value)} className="profileInput" placeholder='Email'/>
+        <Input value={profile.address} onChange={(e) => updateProfile("address", e.target.value)} className="profileInput" placeholder='Address'/>
         </section>
     )
 }
 
 
-function Summary(){
+function Summary({summary, updateSummary}){
     return (
         <section className='summarySec'>
             <h2>Summary</h2>
-            <textarea placeholder='Write your summary...'></textarea>
+            <textarea value={summary} onChange={(e) => updateSummary(e.target.value)} placeholder='Write your summary...'></textarea>
         </section>
     )
 }
@@ -161,6 +186,47 @@ function WorkSection({item, updateWork, deleteWork}){
             <Input value={item.accomplishment} onChange={(e) => updateWork(item.id, "accomplishment", e.target.value)} className="comAccomplishment" placeholder='Accomplishments and Achivements'/>
             <DeleteButton onClick={() => deleteWork(item.id)}/>
         </section>
+    )
+}
+
+function Paper({educ, wrk, profile, summary}){
+    return (
+        <div id="paper" className="paper">
+            <h1>{profile.fullName}</h1>
+            <div className="paperProfile">
+                <p>{profile.email}</p>
+                <p>{profile.phone}</p>
+                <p>{profile.address}</p>
+            </div>
+            <hr></hr>
+            <h2>Summary</h2>
+            <p>{summary}</p>
+            <hr></hr>
+            <h2>Education</h2>
+            {educ.map(item => (
+                <div key={item.id}>
+                    <div className="upperPaper">
+                        <h3>{item.school}</h3>
+                        <p>({item.location})</p>
+                        <p>{item.from} - {item.to}</p>
+                    </div>
+                    <p>{item.degree}</p>
+                    <p>{item.accomplishment}</p>
+                </div>
+            ))}
+            <hr></hr>
+            {wrk.map(item => (
+                <div key={item.id}>
+                    <div className="upperPaper">
+                        <h3>{item.company}</h3>
+                        <p>({item.location})</p>
+                        <p>{item.from} - {item.to}</p>
+                    </div>
+                    <p>{item.role}</p>
+                    <p>{item.accomplishment}</p>
+                </div>
+            ))}
+        </div>
     )
 }
 
