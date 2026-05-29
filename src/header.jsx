@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import download from './assets/download.png'
-// import edit from './assets/edit.png'
 import view from './assets/view.png'
 import add from './assets/add.png'
+import phone from './assets/phone.png'
+import email from './assets/email.png'
+import location from './assets/location.png'
 import { Input, DeleteButton } from './helper';
-
+import html2pdf from 'html2pdf.js'
 
 export function Header({ changePreview, preview }){
 
@@ -14,7 +16,7 @@ export function Header({ changePreview, preview }){
             <div className="headerSelect">
 
                 <button onClick={changePreview}><img src={view} alt='View'></img></button>
-                {preview && <button><img src={download} alt='View'></img></button>}
+                {preview && <button onClick={() => html2pdf().from(document.getElementById("paper")).save()}><img src={download} alt='View'></img></button>}
             </div>
         </header>
     )
@@ -192,29 +194,36 @@ function WorkSection({item, updateWork, deleteWork}){
 function Paper({educ, wrk, profile, summary}){
     return (
         <div id="paper" className="paper">
+            <div className="paperInfo">
             <h1>{profile.fullName}</h1>
-            <div className="paperProfile">
-                <p>{profile.email}</p>
-                <p>{profile.phone}</p>
-                <p>{profile.address}</p>
+                <div className="paperProfile">
+                    <p><img src={email}></img>{profile.email}</p>
+                    <p><img src={phone}></img>{profile.phone}</p>
+                    <p><img src={location}></img>{profile.address}</p>
+                </div>
             </div>
             <hr></hr>
-            <h2>Summary</h2>
+            <h2 id='summaryh2'>Summary</h2>
             <p>{summary}</p>
             <hr></hr>
             <h2>Education</h2>
             {educ.map(item => (
                 <div key={item.id}>
                     <div className="upperPaper">
-                        <h3>{item.school}</h3>
+                         <h3>{item.school}</h3>
                         <p>({item.location})</p>
                         <p>{item.from} - {item.to}</p>
                     </div>
-                    <p>{item.degree}</p>
-                    <p>{item.accomplishment}</p>
+                    <div className="paperDetails">
+                        <ul>
+                            <li>{item.degree}</li>
+                            <li>{item.accomplishment}</li>
+                        </ul>
+                    </div>
                 </div>
             ))}
             <hr></hr>
+            <h2>Work Experience</h2>
             {wrk.map(item => (
                 <div key={item.id}>
                     <div className="upperPaper">
@@ -222,8 +231,12 @@ function Paper({educ, wrk, profile, summary}){
                         <p>({item.location})</p>
                         <p>{item.from} - {item.to}</p>
                     </div>
-                    <p>{item.role}</p>
-                    <p>{item.accomplishment}</p>
+                    <div className="paperDetails">
+                        <ul>
+                            <li>{item.role}</li>
+                            <li>{item.accomplishment}</li>
+                        </ul>
+                    </div>
                 </div>
             ))}
         </div>
