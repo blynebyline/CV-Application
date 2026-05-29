@@ -1,0 +1,76 @@
+.paper {
+    width: min(210mm, 95vw);
+    min-height: 297mm;
+    background: white;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    padding: clamp(10px, 5%, 20mm);
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+#summaryh2 {
+    text-align: center;
+}
+
+.paperInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.paperProfile {
+    text-align: right;
+    font-size: 0.85rem;
+}
+
+.paperProfile img {
+    width: 10px;
+    margin-right: 2px;
+}
+
+.paperProfile p {
+    margin: 2px 0;
+}
+
+.upperPaper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.paperDetails{
+    padding-left: 30px;
+}
+
+ul {
+    margin: 0;
+    padding: 0 0 0 20px;
+}
+
+h1 {
+    margin: 0 0 4px 0;
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+h3 {
+    margin: 4px 0;
+    font-size: 1rem;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid black;
+    margin: 4px 0;
+}
+
+p {
+    margin: 2px 0;
+    font-size: 0.9rem;
+}
